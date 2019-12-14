@@ -6,7 +6,6 @@ void funV(char *p, int N)
 	int i=0;
 	do
 	{
-		printf("%c",p[i]);
 		i++;
 	}
 	while (i<N);
