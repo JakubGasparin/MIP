@@ -1,7 +1,7 @@
-// projekt.c -- Jakub GaöparÌn, 23.11.2019 15:35
+// projekt.c -- Jakub Ga≈°par√≠n, 23.11.2019 15:35
 
-#include <stdio.h>
-void funN()									//naËÌtanie do pov. pola
+/*#include <stdio.h>
+void funN()									//naƒç√≠tanie do pov. pola
 {
 	FILE*sifra;
 	char povText[1000];
@@ -18,7 +18,7 @@ void funN()									//naËÌtanie do pov. pola
 }  
 
 
-void funV()								//v˝pis z pov. pola
+void funV()								//v√Ωpis z pov. pola
 {
 	FILE*sifra;
 	char povText[1000];
@@ -43,7 +43,7 @@ void funV()								//v˝pis z pov. pola
     return;
 }
 
-void funU()								//naËÌtanie do upr. pola
+void funU()								//naƒç√≠tanie do upr. pola
 {
 	int i=0,f=0;
 	char povText[1000], uprText[1000];
@@ -77,7 +77,7 @@ void funU()								//naËÌtanie do upr. pola
 	return;        
 }
 
-void funS()							//v˝pis upr. pola
+void funS()							//v√Ωpis upr. pola
 {
 	int i=0,f=0;
 	char povText[1000], uprText[1000];
@@ -437,7 +437,7 @@ int main()									//hlavna funckia
   { 
   scanf("%c",&ch);
   
-  switch (ch)								//Switch case vo while, aby sa priÌkazy mohli opakovaù do kola, do kial sa nestlaci k. 
+  switch (ch)								//Switch case vo while, aby sa pri√≠kazy mohli opakova≈• do kola, do kial sa nestlaci k. 
   {
     case 'n': test=1; funN(); break;      
 
@@ -515,5 +515,5 @@ int main()									//hlavna funckia
   while(ch!='k'); 
   return 0;
 }
-
-//Program som robil v DevC++ a tam mi vöetko iölo, len turing mi to nechce zobraù. 
+*/
+//Program som robil v DevC++ a tam mi v≈°etko i≈°lo, len turing mi to nechce zobra≈•. 
