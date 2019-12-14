@@ -1,21 +1,18 @@
 // projekt.c -- Jakub Gašparín, 23.11.2019 15:35
 
-/*#include <stdio.h>
-void funN()									//načítanie do pov. pola
+#include <stdio.h>
+void funV(char *p, int N)
 {
-	FILE*sifra;
-	char povText[1000];
-	char ch;
 	int i=0;
-	sifra =fopen("sifra.txt","r");
-    while (fscanf(sifra,"%c",&ch)!=EOF && i!=1000 )
-    {
-      povText[i]=ch;
-      i++;
-    }
-    fclose(sifra);    
-    return;
-}  
+	do
+	{
+		printf("%c",p[i]);
+		i++;
+	}
+	while (i<N);
+	printf("\n");
+	return;
+}
 
 
 void funV()								//výpis z pov. pola
@@ -515,5 +512,5 @@ int main()									//hlavna funckia
   while(ch!='k'); 
   return 0;
 }
-*/
+
 //Program som robil v DevC++ a tam mi všetko išlo, len turing mi to nechce zobrať. 
