@@ -11,7 +11,6 @@ int funN(char *p)									//načítanie do pov. pola
 		while ((c=fgetc(sifra))!=EOF)
 		{
 			p[i]=c;
-			printf("%c",c);
 			i++;
 		}
 	}
