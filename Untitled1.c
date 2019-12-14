@@ -1,11 +1,31 @@
 // projekt.c -- Jakub Gašparín, 23.11.2019 15:35
 
 #include <stdio.h>
-void funV(char *p, int N)
+int funN(char *p)									//načítanie do pov. pola
+{
+	FILE*sifra;
+	int i=0;
+	char c;
+	if	((sifra = fopen("sifra.txt","r"))!=NULL)
+	{
+		while ((c=fgetc(sifra))!=EOF)
+		{
+			p[i]=c;
+			printf("%c",c);
+			i++;
+		}
+	}
+	else (printf("Subor sa nenasiel"));
+	fclose(sifra);
+	return i;
+}
+
+void funV(char *p, int N)						//Vypis pola
 {
 	int i=0;
 	do
 	{
+		printf("%c",p[i]);
 		i++;
 	}
 	while (i<N);
