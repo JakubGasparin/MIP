@@ -32,32 +32,6 @@ void funV(char *p, int N)						//Vypis pola
 	return;
 }
 
-
-void funV()								//výpis z pov. pola
-{
-	FILE*sifra;
-	char povText[1000];
-	char ch;
-	int i=0;
-	sifra =fopen("sifra.txt","r");
-    while (fscanf(sifra,"%c",&ch)!=EOF && i!=1000 )
-    {
-      povText[i]=ch;
-      i++;
-    }
-    fclose(sifra);    
-    
-	i=0;	  
-   	while (povText[i]!='\0')
-        {
-          printf("%c",povText[i]);
-          i++;
-        }
-    printf("\n");   
-	fclose(sifra);        
-    return;
-}
-
 void funU()								//načítanie do upr. pola
 {
 	int i=0,f=0;
