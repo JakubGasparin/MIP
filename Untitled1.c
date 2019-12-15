@@ -34,8 +34,8 @@ void funV(char *p, int N)						//Vypis pola
 
 int funU(char *p,char *u,int N)								//načítanie do upr. pola
 { 
-    int i=0,f=0;	
-	 while (i<N)
+    	int i=0,f=0;	
+	while (i<N)
         {
          if (p[i]>='a' && p[i]<='z')
             {
@@ -52,55 +52,39 @@ int funU(char *p,char *u,int N)								//načítanie do upr. pola
             i++;
         }
     
-return f;        
+	return f;        
 }
 
 void funS(char *u,int V)							//výpis upr. pola
-{	
-		
-	while (uprText[f]!='\0')
-          {
-            printf("%c",uprText[f]);
-            f++;
-          }
-    printf("\n"); 
-	fclose(sifra);   
-	return;
-}
-
-void funD()										// zistenie dlzky slov v poli
-{
-	FILE*sifra;
-	char povText[1000];
-	char ch;
-	int i=0, k,pocet=0;
-	sifra =fopen("sifra.txt","r");
-	scanf("%d",&k);
-    while (fscanf(sifra,"%c",&ch)!=EOF && i!=1000 )
-    {
-      povText[i]=ch;
-      i++;
-    }
-    fclose(sifra);    
-    
-	i=0;	  	
-	if (k>=1 && k<=100)
+{	int f=0;
+	do
 	{
-		
-		while (povText[i]!='\0')
-		{
-			
-			if (povText[i]==' ' && pocet==3)
+		printf("%c",u[f]);
+		f++;
+	}
+	while (f<V);
+	printf("\n");
+	return;	
+
+void funD(char *p,int N)										// zistenie dlzky slov v poli
+{  
+	int i=0,k;
+	scanf("%d",&k)
+	if (k>=1 && k<=100)
+	{	
+		while (i<N)
+		{			
+			if (p[i]==' ' && pocet==3)
 			{
 				
 				i=i-3;
-				printf("%c%c%c",povText[i],povText[i+1],povText[i+2]);
+				printf("%c%c%c",p[i],p[i+1],p[i+2]);
 				pocet=0;
 				i=i+3;
 				printf("\n");
 			} 
 			
-			else if (povText[i]==' ')
+			else if (p[i]==' ')
 				{
 					pocet=0;
 					i++;			
@@ -109,13 +93,7 @@ void funD()										// zistenie dlzky slov v poli
 			 	{
 			 		i++;
 			 		pocet++;
-				}
-			/*{
-				i++;
-				pocet++;
-			
-			}*/
-			
+				}			
 		}
 	}
 	else 
@@ -208,50 +186,8 @@ int main()									//hlavna funckia
     case 'v': funV(povText,N); break;
     case 'u': V=funU(povText,uprText,N); break;
     case 's': funS(uprText,V); break;    
-    case 'd': {
-    	if (test==2 || test==1)
-    	{
-    		funD();
-		}
-		else (printf("Sprava nie je nacitana\n"));
-	}break;
-	
-	/*case 'h':{
-		 if (test==2)
-		 {
-		 	funH();
-		 }
-		 else (printf("Nie je k dispozicii upravena sprava.\n"));
-		
-	}break;*/
-	
-	case 'c':{
-		if (test==2)
-		{
-			funC();
-		}
-
-	}break;
-	
-	case 'p':{
-		if (test==1)
-		{
-			funP();
-		}
-		else (printf("Sprava nie je nacitana\n"));
-		
-	}break;
-	
-	case 'z':{
-		if (test==2)
-		{
-			funZ();
-		}
-		else (printf("Nie je k dispozicii upravena sprava.\n"));
-		
-	}break;
-    
-    }
+    case 'd': funD(povText,N); break;    
+   }
 
   }
   while(ch!='k'); 
