@@ -1,7 +1,7 @@
 // projekt.c -- Jakub Gašparín, 23.11.2019 15:35
 
 #include <stdio.h>
-int funN(char *p)									//načítanie do pov. pola
+int funN(char *p)		//načítanie do pov. pola
 {
 	FILE*sifra;
 	int i=0;
@@ -19,7 +19,7 @@ int funN(char *p)									//načítanie do pov. pola
 	return i;
 }
 
-void funV(char *p, int N)						//Vypis pola
+void funV(char *p, int N)	//Vypis pola
 {
 	int i=0;
 	do
@@ -32,7 +32,7 @@ void funV(char *p, int N)						//Vypis pola
 	return;
 }
 
-int funU(char *p,char *u,int N)								//načítanie do upr. pola
+int funU(char *p,char *u,int N)		//načítanie do upr. pola
 { 
     	int i=0,f=0;	
 	while (i<N)
@@ -55,7 +55,7 @@ int funU(char *p,char *u,int N)								//načítanie do upr. pola
 	return f;        
 }
 
-void funS(char *u,int V)							//výpis upr. pola
+void funS(char *u,int V)	//výpis upr. pola
 {	int f=0;
 	do
 	{
@@ -65,11 +65,11 @@ void funS(char *u,int V)							//výpis upr. pola
 	while (f<V);
 	printf("\n");
 	return;	
-
-void funD(char *p,int N)										// zistenie dlzky slov v poli
+}
+void funD(char *p,int N)	// zistenie dlzky slov v poli
 {  
-	int i=0,k;
-	scanf("%d",&k)
+	int i=0,,pocet=0,k;
+	scanf("%d",&k);
 	if (k>=1 && k<=100)
 	{	
 		while (i<N)
@@ -105,77 +105,42 @@ void funD(char *p,int N)										// zistenie dlzky slov v poli
 	return;
 }
 
-
-
-void funC()									// Cesarova sifra. 
-{
-	int i=0,f=0,n;
-	char povText[1000], uprText[1000];
-	char ch;
-	FILE*sifra;
-	sifra =fopen("sifra.txt","r");
-	scanf("%d",&n);
-    while (fscanf(sifra,"%c",&ch)!=EOF && i!=1000 )
+void funC(char *u, int V)			// Cesarova sifra. 
+{	
+    int f=0;
+    scanf("%d",&n);
+    while(f<V)
     {
-      povText[i]=ch;
-      i++;
-    }
-    fclose(sifra);  
-    i=0;	
-	while (povText[i]!='\0')
-        {
-         if (povText[i]>='a' && povText[i]<='z')
-            {
-              uprText[f]=povText[i];
-              uprText[f]=uprText[f]-32;
-              f++;
-            }
-            else if(povText[i]>='A' && povText[i]<='Z')
-            {
-              uprText[f]=povText[i];
-              f++;
-            }
-          
-            i++;
-        }   
-        
-    i=0;
-    f=0;
-    while(uprText[f]!='\0')
-    {
-    	if(uprText[f]>='a' && uprText[f]<='z')
+    	if(u[f]>='a' && u[f]<='z')
 		{
-			uprText[f]=uprText[f]-n;
-			
-			if(uprText[f]>'a')
+			u[f]=u[f]-n;			
+			if(u[f]>'a')
 			{
-				uprText[f] = uprText[f]-'a'+'z'-1;
+			 	u[f] = u[f]-'a'+'z'-1;
 			}			
 		}
-		else if(uprText[f] >= 'A' && uprText[f]<='Z')
+		else if(u[f] >= 'A' && u[f]<='Z')
 		{
-			uprText[f]=uprText[f]+n;			
-			if(uprText[f]>'A')
+			u[f]=u[f]+n;			
+			if(u[f]>'A')
 			{
-				uprText[f] =uprText[f]-'A'+'Z'-1;
-			}		
-			
+				u[f] = u[f]-'A'+'Z'-1;
+			}			
 		}
-		printf("%c",uprText[f]);
+		printf("%c",u[f]);
 		f++;
 	}
     printf("\n"); 
-    fclose(sifra);
     return;
 }
 
-int main()									//hlavna funckia
-
+int main()				//hlavna funckia
 {
   char ch;
-  char povText[1000],uprText[1000];
+  char povText[1000]={0},uprText[1000]={0};
   int N,V; 
   int pole,i,f;
+	
   do
   { 
   scanf("%c",&ch);
@@ -187,11 +152,10 @@ int main()									//hlavna funckia
     case 'u': V=funU(povText,uprText,N); break;
     case 's': funS(uprText,V); break;    
     case 'd': funD(povText,N); break;    
+    case 'c': funC(uprText,V); break;
    }
 
   }
   while(ch!='k'); 
   return 0;
 }
-
-//Program som robil v DevC++ a tam mi všetko išlo, len turing mi to nechce zobrať. 
