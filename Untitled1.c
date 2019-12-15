@@ -32,38 +32,27 @@ void funV(char *p, int N)						//Vypis pola
 	return;
 }
 
-void funU()								//načítanie do upr. pola
-{
-	int i=0,f=0;
-	char povText[1000], uprText[1000];
-	char ch;
-	FILE*sifra;
-	sifra =fopen("sifra.txt","r");
-    while (fscanf(sifra,"%c",&ch)!=EOF && i!=1000 )
-    {
-      povText[i]=ch;
-      i++;
-    }
-    fclose(sifra);  
-    i=0;	
-	 while (povText[i]!='\0')
+int funU(char *p,char *u,int N)								//načítanie do upr. pola
+{ 
+    int i=0,f=0;	
+	 while (i<N)
         {
-         if (povText[i]>='a' && povText[i]<='z')
+         if (p[i]>='a' && p[i]<='z')
             {
-              uprText[f]=povText[i];
-              uprText[f]=uprText[f]-32;
+              u[f]=p[i];
+              u[f]=u[f]-32;
               f++;
             }
-            else if(povText[i]>='A' && povText[i]<='Z')
+            else if(p[i]>='A' && p[i]<='Z')
             {
-              uprText[f]=povText[i];
+              u[f]=p[i];
               f++;
             }
           
             i++;
         }
-    fclose(sifra);
-	return;        
+    
+return f;        
 }
 
 void funS()							//výpis upr. pola
@@ -426,7 +415,7 @@ int main()									//hlavna funckia
   { 
   scanf("%c",&ch);
   
-  switch (ch)								//Switch case vo while, aby sa priíkazy mohli opakovať do kola, do kial sa nestlaci k. 
+  switch (ch)	//Switch case vo while, aby sa priíkazy mohli opakovať do kola, do kial sa nestlaci k. 
   {
     case 'n': test=1; funN(); break;      
 
